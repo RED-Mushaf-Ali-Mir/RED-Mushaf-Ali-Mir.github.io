@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mushaf Ali Mir</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav>
+    <span class="nav-name">Mushaf Ali Mir</span>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#blog">Blog</a>
+      <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/mushaf-ali-mir-6a32b6295" target="_blank">LinkedIn</a>
+    </div>
+  </nav>
+
+  <section id="hero">
+    <h1>Mushaf Ali Mir</h1>
+    <p class="tagline">CS student at FAST-NUCES · Building toward ML Systems research</p>
+    <p class="hero-sub">I write about what I'm learning — neural networks, OS internals, and the systems underneath AI.</p>
+    <div class="hero-links">
+      <a href="#blog" class="btn">Read the blog</a>
+      <a href="#projects" class="btn btn-ghost">See projects</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>About</h2>
+    <p>
+      I'm a second-year Computer Science student at FAST-NUCES, Karachi, Pakistan.
+      My long-term goal is ML Systems research — the intersection of operating systems and AI,
+      focusing on how models run efficiently at the hardware level.
+    </p>
+    <p>
+      Currently working through Andrej Karpathy's Neural Networks: Zero to Hero series
+      (micrograd → makemore → nanoGPT) while deepening my OS knowledge using the Dinosaur book and OSTEP.
+    </p>
+    <div class="skills">
+      <span class="tag">C / C++</span>
+      <span class="tag">Python</span>
+      <span class="tag">JavaScript / React</span>
+      <span class="tag">Linux</span>
+      <span class="tag">Neural Networks</span>
+      <span class="tag">HuggingFace</span>
+      <span class="tag">PostgreSQL</span>
+      <span class="tag">ptrace / syscalls</span>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="project-grid">
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">mini-strace</span>
+          <span class="card-tag">C · Linux · ptrace</span>
+        </div>
+        <p>Linux process tracing tool replicating core strace functionality. Supports syscall filtering and an interactive ncurses TUI for real-time monitoring.</p>
+        <a href="https://github.com/RED-Mushaf-Ali-Mir/Mtrace" target="_blank" class="card-link">View on GitHub →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">Sentiment Analyzer</span>
+          <span class="card-tag">Python · HuggingFace</span>
+        </div>
+        <p>Fine-tuned DistilBERT on IMDb, Yelp, and SST-2 datasets. Deployed publicly on HuggingFace Spaces with a live inference interface.</p>
+        <a href="https://huggingface.co/spaces/RED-MARK" target="_blank" class="card-link">View on HuggingFace →</a>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <span class="card-title">OpenCourse</span>
+          <span class="card-tag">React · Node.js · PostgreSQL</span>
+        </div>
+        <p>Open-source platform for student paper collection and teacher course recommendations. Built full-stack as sole developer for use within the university community.</p>
+        <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank" class="card-link">View on GitHub →</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="blog">
+    <h2>Blog</h2>
+    <p class="section-sub">Notes from building things — raw, honest, and technical.</p>
+
+    <div class="post-list">
+
+      <a href="posts/micrograd.html" class="post-item">
+        <div class="post-meta">Coming soon</div>
+        <div class="post-title">Building micrograd from scratch — what backprop actually looks like in code</div>
+        <div class="post-desc">Implementing Karpathy's autograd engine myself and understanding every line of it.</div>
+      </a>
+
+      <a href="posts/nanogpt.html" class="post-item">
+        <div class="post-meta">Coming soon</div>
+        <div class="post-title">I implemented nanoGPT and trained it on Shakespeare — here's what broke</div>
+        <div class="post-desc">A walkthrough of building a GPT from scratch and the things I got wrong along the way.</div>
+      </a>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>Mushaf Ali Mir · Karachi, Pakistan</p>
+    <div class="footer-links">
+      <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/mushaf-ali-mir-6a32b6295" target="_blank">LinkedIn</a>
+      <a href="mailto:mushafalimir49@gmail.com">Email</a>
+    </div>
+  </footer>
+
+</body>
+</html>
