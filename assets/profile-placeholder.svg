@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-labelledby="title desc">
+  <title id="title">Mushaf Ali Mir initials</title><desc id="desc">A simple fallback portrait using the initials M A.</desc>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#e7cb77"/><stop offset="1" stop-color="#b9783f"/></linearGradient></defs>
+  <rect width="800" height="1000" fill="#102c46"/><circle cx="400" cy="410" r="230" fill="url(#g)" opacity=".92"/>
+  <text x="400" y="485" text-anchor="middle" font-family="Georgia,serif" font-size="190" fill="#102c46">MA</text>
+  <path d="M90 1000c35-235 155-353 310-353S675 765 710 1000" fill="#e9dfbf" opacity=".88"/>
+</svg>

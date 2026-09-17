@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Technical learning notes by Mushaf Ali Mir on neural networks, computer vision, language models, and Linux systems.">
+  <title>Learning Notes — Mushaf Ali Mir</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-nav"><nav class="nav-inner" aria-label="Primary navigation">
+    <a class="brand" href="index.html"><span class="brand-mark">MM</span><span>Mushaf Ali Mir</span></a>
+    <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <div class="nav-links"><a href="index.html#about">About</a><a href="index.html#projects">Projects</a><a href="blog.html" aria-current="page">Learning notes</a><a href="https://github.com/RED-Mushaf-Ali-Mir">GitHub</a><a class="nav-cta" href="mailto:mushafalimir49@gmail.com">Email me</a></div>
+  </nav></header>
+  <main id="main">
+    <header class="notes-hero"><p class="kicker">Learning in public</p><h1 class="page-title">Notes from building the idea, not just reading it.</h1><p>Eight finished articles, organized by topic. Together they trace a path from scalar gradients to sequence models, computer vision, attention, and the Linux boundary underneath software.</p></header>
+    <div class="filters" aria-label="Filter articles">
+      <button class="filter active" type="button" data-filter="all">All notes</button>
+      <button class="filter" type="button" data-filter="foundations">Foundations</button>
+      <button class="filter" type="button" data-filter="vision">Computer vision</button>
+      <button class="filter" type="button" data-filter="language">Language models</button>
+      <button class="filter" type="button" data-filter="systems">Systems</button>
+    </div>
+    <section class="notes-grid" aria-label="Article list">
+      <a class="note-card" data-topic="language" href="posts/transformer.html"><div class="meta"><span>Language models</span><time datetime="2026-09-15">15 Sep 2026</time></div><h2>Building a decoder-only Transformer, one attention head at a time</h2><p>Token embeddings, causal self-attention, multi-head attention, residual paths, layer normalization, and autoregressive generation.</p></a>
+      <a class="note-card" data-topic="vision" href="posts/unet.html"><div class="meta"><span>Computer vision</span><time datetime="2026-09-12">12 Sep 2026</time></div><h2>U-Net: keeping detail while learning context</h2><p>Why segmentation needs an encoder, decoder, upsampling, and skip connections that recover spatial detail.</p></a>
+      <a class="note-card" data-topic="vision" href="posts/yolo.html"><div class="meta"><span>Computer vision</span><time datetime="2026-09-05">05 Sep 2026</time></div><h2>YOLO, IoU, and non-max suppression</h2><p>How a detector represents boxes, filters scores, measures overlap, and removes duplicate predictions.</p></a>
+      <a class="note-card" data-topic="vision" href="posts/resnet.html"><div class="meta"><span>Computer vision</span><time datetime="2026-08-29">29 Aug 2026</time></div><h2>Why residual connections help deep networks</h2><p>Identity blocks, projection shortcuts, degradation in deep networks, and what ResNet-50 changes.</p></a>
+      <a class="note-card" data-topic="vision" href="posts/cnn-foundations.html"><div class="meta"><span>Computer vision</span><time datetime="2026-08-21">21 Aug 2026</time></div><h2>Convolutions without the mystery</h2><p>Kernels, padding, stride, channels, pooling, receptive fields, and the tensor shapes behind a CNN forward pass.</p></a>
+      <a class="note-card" data-topic="systems" href="posts/mini-strace.html"><div class="meta"><span>Systems</span><time datetime="2026-08-10">10 Aug 2026</time></div><h2>Mtrace: watching a process talk to the kernel</h2><p>Tracing syscall entry and exit, reading registers and remote memory, forwarding signals, and making the result usable.</p></a>
+      <a class="note-card" data-topic="language" href="posts/RNN-MusicGenerator.html"><div class="meta"><span>Language models</span><time datetime="2026-07-31">31 Jul 2026</time></div><h2>Training an RNN to write Irish folk music</h2><p>Character-level generation, hidden and cell state, sampling temperature, and a CUDA bug caused by a lost batch dimension.</p></a>
+      <a class="note-card" data-topic="foundations" href="posts/micrograd.html"><div class="meta"><span>Foundations</span><time datetime="2026-07-20">20 Jul 2026</time></div><h2>Building a tiny gradient engine from scratch</h2><p>A scalar computation graph, local derivatives, topological order, gradient accumulation, and a small neural-network API.</p></a>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="footer-inner"><span>© 2026 Mushaf Ali Mir</span><div class="footer-links"><a href="index.html">Home</a><a href="https://github.com/RED-Mushaf-Ali-Mir">GitHub</a><a href="mailto:mushafalimir49@gmail.com">Email</a></div></div></footer>
+</body>
+</html>

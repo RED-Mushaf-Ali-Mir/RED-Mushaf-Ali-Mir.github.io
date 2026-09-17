@@ -1,144 +1,149 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mushaf Ali Mir</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Mushaf Ali Mir — computer science student building toward ML systems research through neural networks, computer vision, and Linux systems projects.">
+  <meta name="theme-color" content="#0e2a45">
+  <title>Mushaf Ali Mir — ML Systems & Computer Science</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
-
-  <nav>
-    <span class="nav-name">Mushaf Ali Mir</span>
-    <div class="nav-links">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#blog">Blog</a>
-      <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/mushaf-ali-mir-6a32b6295" target="_blank">LinkedIn</a>
-    </div>
-  </nav>
-
-  <section id="hero">
-    <h1>Mushaf Ali Mir</h1>
-    <p class="tagline">CS student at FAST-NUCES · Building toward ML Systems research</p>
-    <p class="hero-sub">I write about what I'm learning — neural networks, OS internals, and the systems underneath AI.</p>
-    <div class="hero-links">
-      <a href="#blog" class="btn">Read the blog</a>
-      <a href="#projects" class="btn btn-ghost">See projects</a>
-    </div>
-  </section>
-
-  <section id="about">
-    <h2>About</h2>
-    <p>
-      I'm a second-year Computer Science student at FAST-NUCES, Karachi, Pakistan.
-      My long-term goal is ML Systems research — the intersection of operating systems and AI,
-      focusing on how models run efficiently at the hardware level.
-    </p>
-    <p>
-      Currently working through Andrej Karpathy's Neural Networks: Zero to Hero series
-      (micrograd → makemore → nanoGPT) while deepening my OS knowledge using the Dinosaur book and OSTEP.
-    </p>
-    <div class="skills">
-      <span class="tag">C / C++</span>
-      <span class="tag">Python</span>
-      <span class="tag">JavaScript / React</span>
-      <span class="tag">Linux</span>
-      <span class="tag">Neural Networks</span>
-      <span class="tag">HuggingFace</span>
-      <span class="tag">PostgreSQL</span>
-      <span class="tag">Pytorch</span>
-    </div>
-  </section>
-
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-grid">
-    
-      <div class="card">
-        <div class="card-header">
-          <span class="card-title">character-language-models-from-scratch</span>
-          <span class="card-tag">Python · Pytorch · Matlab </span>
-        </div>
-        <p>Character-level language models implemented from scratch, progressing from statistical bigram models to neural networks, MLPs, and WaveNet while following and extending concepts from Andrej Karpathy's makemore series.</p>
-        <a href="https://github.com/RED-Mushaf-Ali-Mir/character-language-models-from-scratch" target="_blank" class="card-link">View on GitHub →</a>
-       </div>
-       
-       <div class="card">
-        <div class="card-header">
-          <span class="card-title">Neural-Net-From-Scratch</span>
-          <span class="card-tag">Python · Matlab </span>
-        </div>
-        <p>I implemented a neural net interface like pytorch.nn module with the help of karapthy's series.The implementation allows forward pass and backward pass.The backward pass is stohastic gradient decent.The neural net supports mulitple operation and more will be added soon.</p>
-        <a href="https://github.com/RED-Mushaf-Ali-Mir/Neural_Net_Implementation" target="_blank" class="card-link">View on GitHub →</a>
-       </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-title">mini-strace</span>
-          <span class="card-tag">C · Linux · ptrace</span>
-        </div>
-        <p>Linux process tracing tool replicating core strace functionality. Supports syscall filtering and an interactive ncurses TUI for real-time monitoring.</p>
-        <a href="https://github.com/RED-Mushaf-Ali-Mir/Mtrace" target="_blank" class="card-link">View on GitHub →</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-nav">
+    <nav class="nav-inner" aria-label="Primary navigation">
+      <a class="brand" href="index.html"><span class="brand-mark">MM</span><span>Mushaf Ali Mir</span></a>
+      <button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">☰</button>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="blog.html">Learning notes</a>
+        <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="nav-cta" href="mailto:mushafalimir49@gmail.com">Email me</a>
       </div>
+    </nav>
+  </header>
 
-      <div class="card">
-        <div class="card-header">
-          <span class="card-title">Sentiment Analyzer</span>
-          <span class="card-tag">Python · HuggingFace</span>
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <div>
+          <p class="eyebrow">Computer Science · ML Systems</p>
+          <h1 id="hero-title">Building AI from first principles.</h1>
+          <p class="hero-copy">I’m Mushaf, a CS student interested in what happens beneath the model: gradients, architectures, operating systems, and the engineering that makes machine learning efficient.</p>
+          <div class="hero-actions">
+            <a class="button" href="#projects">Explore my work <span aria-hidden="true">↓</span></a>
+            <a class="button secondary" href="blog.html">Read learning notes</a>
+          </div>
         </div>
-        <p>Fine-tuned DistilBERT on IMDb, Yelp, and SST-2 datasets. Deployed publicly on HuggingFace Spaces with a live inference interface.</p>
-        <a href="https://huggingface.co/spaces/RED-MARK" target="_blank" class="card-link">View on HuggingFace →</a>
-      </div>
-
-      <div class="card">
-        <div class="card-header">
-          <span class="card-title">OpenCourse</span>
-          <span class="card-tag">React · Node.js · PostgreSQL</span>
+        <div class="portrait-wrap">
+          <div class="portrait-frame">
+            <img src="https://github.com/RED-Mushaf-Ali-Mir.png?size=800" alt="Mushaf Ali Mir" onerror="this.src='assets/profile-placeholder.svg'">
+          </div>
+          <p class="portrait-note">Karachi · Pakistan</p>
         </div>
-        <p>Open-source platform for student paper collection and teacher course recommendations. Built full-stack as sole developer for use within the university community.</p>
-        <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank" class="card-link">View on GitHub →</a>
       </div>
+    </section>
 
+    <div class="page">
+      <section class="section" id="about">
+        <div class="section-head">
+          <div><p class="kicker">About</p><h2>Curious about the whole stack.</h2></div>
+          <p class="section-intro">My goal is to grow into ML systems research: understanding models deeply, then making them faster, cheaper, and reliable enough to matter outside a notebook.</p>
+        </div>
+        <div class="about-grid">
+          <div class="about-copy">
+            <p class="lead">I learn best by rebuilding the mechanism, testing it, and writing down the part that finally made it click.</p>
+            <p>That approach has taken me from a scalar automatic-differentiation engine to character language models, recurrent networks, convolutional architectures, a decoder-only Transformer, and a Linux process tracer built around <code>ptrace</code>.</p>
+            <p>These notes are not polished claims of mastery. They are a record of implementation: the equations, shapes, failure cases, debugging decisions, and connections I want to remember.</p>
+            <div class="skill-row" aria-label="Technologies">
+              <span class="pill">Python</span><span class="pill">PyTorch</span><span class="pill">TensorFlow / Keras</span><span class="pill">C / C++</span><span class="pill">Linux</span><span class="pill">React</span><span class="pill">PostgreSQL</span>
+            </div>
+          </div>
+          <ol class="focus-list">
+            <li><span>01</span><div><strong>Neural foundations</strong><small>Backpropagation, language modeling, sequence learning, and attention from scratch.</small></div></li>
+            <li><span>02</span><div><strong>Computer vision</strong><small>Convolutions, residual networks, object detection, IoU, NMS, and segmentation.</small></div></li>
+            <li><span>03</span><div><strong>Systems thinking</strong><small>Processes, syscalls, signals, profiling, and the software beneath model execution.</small></div></li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section" id="projects">
+        <div class="section-head">
+          <div><p class="kicker">Selected work</p><h2>Projects with a reason behind them.</h2></div>
+          <p class="section-intro">Each project answered a question I could not understand by only reading: how gradients travel, how context is represented, or how software crosses into the kernel.</p>
+        </div>
+        <div class="project-list">
+          <article class="project-card">
+            <span class="project-number">01 · Language models</span>
+            <h3>Character language models, from counts to attention</h3>
+            <p>A progression from bigram statistics and MLPs to a WaveNet-style hierarchy and decoder-only Transformer, built to compare what each architecture adds.</p>
+            <div class="project-meta"><span>Python · PyTorch</span><a class="project-link" href="https://github.com/RED-Mushaf-Ali-Mir/character-language-models-from-scratch" target="_blank" rel="noreferrer">View repository ↗</a></div>
+          </article>
+          <article class="project-card">
+            <span class="project-number">02 · Foundations</span>
+            <h3>Neural network engine from scratch</h3>
+            <p>A small scalar computation engine with dynamic graphs, reverse-mode differentiation, neurons, layers, and gradient-based optimization.</p>
+            <div class="project-meta"><span>Python</span><a class="project-link" href="https://github.com/RED-Mushaf-Ali-Mir/Neural_Net_Implementation" target="_blank" rel="noreferrer">View repository ↗</a></div>
+          </article>
+          <article class="project-card">
+            <span class="project-number">03 · Computer vision</span>
+            <h3>YOLO object-detection pipeline</h3>
+            <p>Decoded model outputs into usable detections with confidence filtering, box conversion, Intersection over Union, and class-aware non-max suppression.</p>
+            <div class="project-meta"><span>TensorFlow · Keras</span><a class="project-link" href="https://github.com/RED-Mushaf-Ali-Mir/YOLO-TensorFlow-Object-Detection" target="_blank" rel="noreferrer">View repository ↗</a></div>
+          </article>
+          <article class="project-card">
+            <span class="project-number">04 · Linux systems</span>
+            <h3>Mtrace process tracer</h3>
+            <p>A Linux tracing tool using <code>ptrace</code>, register inspection, signal handling, syscall filtering, logging, and an ncurses interface.</p>
+            <div class="project-meta"><span>C · Linux · ncurses</span><a class="project-link" href="https://github.com/RED-Mushaf-Ali-Mir/Custom-Process-Tracer-With-Ptrace-Mtrace-" target="_blank" rel="noreferrer">View repository ↗</a></div>
+          </article>
+          <article class="project-card">
+            <span class="project-number">05 · NLP</span>
+            <h3>Sentiment analysis with DistilBERT</h3>
+            <p>A practical fine-tuning and inference project using review datasets, Hugging Face tooling, and a public interactive demo.</p>
+            <div class="project-meta"><span>Transformers · Hugging Face</span><a class="project-link" href="https://huggingface.co/spaces/RED-MARK" target="_blank" rel="noreferrer">Open demo ↗</a></div>
+          </article>
+          <article class="project-card">
+            <span class="project-number">06 · Full stack</span>
+            <h3>FAST Student Hub</h3>
+            <p>A student platform for courses, past papers, teacher feedback, and GPA planning, backed by a relational PostgreSQL data model.</p>
+            <div class="project-meta"><span>React · Express · PostgreSQL</span><a class="project-link" href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank" rel="noreferrer">GitHub profile ↗</a></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="notes">
+        <div class="section-head">
+          <div><p class="kicker">Learning notes</p><h2>From implementation to intuition.</h2></div>
+          <p class="section-intro">The homepage stays selective. The full notes archive separates foundations, vision, language models, and systems so it remains easy to browse as it grows.</p>
+        </div>
+        <div class="blog-preview">
+          <a class="featured-post" href="posts/unet.html">
+            <span class="post-tag">Computer vision</span>
+            <h3>U-Net: keeping detail while learning context</h3>
+            <p>12 September 2026 · 7 min read</p>
+          </a>
+          <div class="post-list">
+            <a class="post-row" href="posts/yolo.html"><span class="post-date">05 Sep</span><span><h3>YOLO, IoU, and non-max suppression</h3><p>Turning dense predictions into clean detections.</p></span><span class="arrow">→</span></a>
+            <a class="post-row" href="posts/resnet.html"><span class="post-date">29 Aug</span><span><h3>Why residual connections help deep networks</h3><p>Identity mappings, vanishing gradients, and ResNet-50.</p></span><span class="arrow">→</span></a>
+            <a class="post-row" href="posts/cnn-foundations.html"><span class="post-date">21 Aug</span><span><h3>Convolutions without the mystery</h3><p>Kernels, padding, stride, channels, and pooling.</p></span><span class="arrow">→</span></a>
+          </div>
+        </div>
+        <div class="section-action"><a class="text-link" href="blog.html">Browse all eight learning notes →</a></div>
+      </section>
     </div>
-  </section>
+  </main>
 
-  <section id="blog">
-    <h2>Blog</h2>
-    <p class="section-sub">Notes from building things — raw, honest, and technical.</p>
-
-    <div class="post-list">
-
-      <a href="posts/RNN-MusicGenerator.html" class="post-item">
-        <div class="post-meta">31-July-2026</div>
-        <div class="post-title">Training an RNN to write Irish folk music — what I learned building a char-level LSTM</div>
-        <div class="post-desc">Building a character-level LSTM in PyTorch, tuning its hyperparameters, and debugging a CUDA error that turned out to be a one-line shape bug.</div>
-      </a>
-
-      <a href="posts/micrograd.html" class="post-item">
-        <div class="post-meta">Coming soon</div>
-        <div class="post-title">Building micrograd from scratch — what backprop actually looks like in code</div>
-        <div class="post-desc">Implementing Karpathy's autograd engine myself and understanding every line of it.</div>
-      </a>
-
-      <a href="posts/nanogpt.html" class="post-item">
-        <div class="post-meta">Coming soon</div>
-        <div class="post-title">I implemented nanoGPT and trained it on Shakespeare — here's what broke</div>
-        <div class="post-desc">A walkthrough of building a GPT from scratch and the things I got wrong along the way.</div>
-      </a>
-
-    </div>
-  </section>
-
-  <footer>
-    <p>Mushaf Ali Mir · Karachi, Pakistan</p>
-    <div class="footer-links">
-      <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/mushaf-ali-mir-6a32b6295" target="_blank">LinkedIn</a>
-      <a href="mailto:mushafalimir49@gmail.com">Email</a>
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>© 2026 Mushaf Ali Mir · Built with plain HTML, CSS, and JavaScript.</span>
+      <div class="footer-links"><a href="https://github.com/RED-Mushaf-Ali-Mir">GitHub</a><a href="https://www.linkedin.com/in/mushaf-ali-mir-6a32b6295">LinkedIn</a><a href="https://www.wikiart.org/en/vincent-van-gogh/the-starry-night-1889">Hero art: Van Gogh</a></div>
     </div>
   </footer>
-
 </body>
 </html>

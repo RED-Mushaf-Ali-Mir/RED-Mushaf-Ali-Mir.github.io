@@ -1,85 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Building micrograd from scratch — Mushaf Ali Mir</title>
-  <link rel="stylesheet" href="../style.css">
-  <style>
-    .post-body { max-width: var(--max); margin: 0 auto; padding: 3rem 1.5rem; }
-    .post-body h1 { font-size: 28px; font-weight: 700; color: var(--blue); margin-bottom: 0.5rem; line-height: 1.3; }
-    .post-body .meta { font-size: 13px; color: var(--muted); margin-bottom: 2rem; }
-    .post-body h3 { font-size: 18px; font-weight: 600; margin: 2rem 0 0.75rem; color: var(--text); }
-    .post-body p { margin-bottom: 1rem; color: var(--text); font-size: 16px; }
-    .post-body code { background: #f3f4f6; padding: 2px 6px; border-radius: 4px; font-family: monospace; font-size: 14px; }
-    .post-body pre { background: #1a1a1a; color: #e5e7eb; padding: 1.25rem; border-radius: 8px; overflow-x: auto; margin: 1rem 0; }
-    .post-body pre code { background: none; padding: 0; color: inherit; font-size: 14px; }
-    .back { display: inline-block; font-size: 13px; color: var(--blue); text-decoration: none; margin-bottom: 1.5rem; }
-    .back:hover { text-decoration: underline; }
-  </style>
-</head>
-<body>
-
-  <nav>
-    <span class="nav-name">Mushaf Ali Mir</span>
-    <div class="nav-links">
-      <a href="../index.html#about">About</a>
-      <a href="../index.html#projects">Projects</a>
-      <a href="../index.html#blog">Blog</a>
-      <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/mushaf-ali-mir-6a32b6295" target="_blank">LinkedIn</a>
-    </div>
-  </nav>
-
-  <div class="post-body">
-    <a href="../index.html#blog" class="back">← Back to blog</a>
-
-    <h1>Building micrograd from scratch — what backprop actually looks like in code</h1>
-    <div class="meta">Written while working through Karpathy's Neural Networks: Zero to Hero · [DATE]</div>
-
-    <h3>Why I built this</h3>
-    <p>
-      []
-    </p>
-
-    <h3>What is autograd, actually?</h3>
-    <p>
-      []
-    </p>
-
-    <h3>The Value class</h3>
-    <p>[]</p>
-    <pre><code># implementation here
-class Value:
-    def __init__(self, data):
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="A practical explanation of reverse-mode automatic differentiation through a tiny scalar engine."><title>Building a tiny gradient engine — Mushaf Ali Mir</title><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="../style.css"><script src="../script.js" defer></script></head>
+<body><header class="site-nav"><nav class="nav-inner"><a class="brand" href="../index.html"><span class="brand-mark">MM</span><span>Mushaf Ali Mir</span></a><button class="menu-button" type="button" aria-label="Open navigation" aria-expanded="false">☰</button><div class="nav-links"><a href="../index.html#projects">Projects</a><a href="../blog.html">Learning notes</a><a href="https://github.com/RED-Mushaf-Ali-Mir">GitHub</a><a class="nav-cta" href="mailto:mushafalimir49@gmail.com">Email me</a></div></nav></header>
+<main class="article-shell"><a class="back-link" href="../blog.html">← All learning notes</a><article><header class="article-header"><p class="kicker">Foundations</p><h1>Building a tiny gradient engine from scratch</h1><p class="article-deck">What <code>loss.backward()</code> is doing: a computation graph, local derivatives, the chain rule, and careful accumulation.</p><div class="article-meta"><time datetime="2026-07-20">20 July 2026</time><span>7 min read</span><span>Learning source: Andrej Karpathy’s micrograd lectures</span></div></header>
+<div class="article-body"><h2>The question I wanted to answer</h2><p>I had trained networks with automatic differentiation, but the convenient API hid the mechanism I most wanted to understand. So I reduced the problem to scalar values. No tensors or GPUs—only numbers connected by arithmetic operations.</p><p>Each result remembers which values produced it. That history turns an ordinary expression into a directed acyclic graph. The forward pass computes data; the backward pass walks the same graph in reverse and computes how sensitive the final output is to each intermediate value.</p>
+<h2>The <code>Value</code> object</h2><pre><code>class Value:
+    def __init__(self, data, children=(), op=""):
         self.data = data
-        self.grad = 0
-        # fill in
-</code></pre>
+        self.grad = 0.0
+        self._prev = set(children)
+        self._op = op
+        self._backward = lambda: None
 
-    <h3>Where I got stuck</h3>
-    <p>
-      []
-    </p>
+    def __mul__(self, other):
+        other = other if isinstance(other, Value) else Value(other)
+        out = Value(self.data * other.data, (self, other), "*")
 
-    <h3>What I actually understand now</h3>
-    <p>
-      []
-    </p>
+        def _backward():
+            self.grad += other.data * out.grad
+            other.grad += self.data * out.grad
+        out._backward = _backward
+        return out</code></pre><p>The multiplication node only knows its local rule. If <code>z = x × y</code>, then <code>∂z/∂x = y</code> and <code>∂z/∂y = x</code>. The upstream gradient <code>∂L/∂z</code> arrives in <code>out.grad</code>; the chain rule multiplies it by those local derivatives.</p>
+<div class="formula">∂L/∂x = (∂L/∂z) · (∂z/∂x)</div>
+<h2>Why the order matters</h2><p>A node can only push a complete gradient backward after every path from the output to that node has contributed. I first build a topological ordering with depth-first search, set the output gradient to one, and call each node’s backward rule in reverse order.</p><pre><code>def backward(self):
+    topo, visited = [], set()
+    def build(node):
+        if node not in visited:
+            visited.add(node)
+            for parent in node._prev:
+                build(parent)
+            topo.append(node)
+    build(self)
 
-    <h3>Next step</h3>
-    <p>Moving on to makemore — building a character-level language model on top of this foundation.</p>
-
-  </div>
-
-  <footer>
-    <p>Mushaf Ali Mir · Karachi, Pakistan</p>
-    <div class="footer-links">
-      <a href="https://github.com/RED-Mushaf-Ali-Mir" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/mushaf-ali-mir-6a32b6295" target="_blank">LinkedIn</a>
-      <a href="mailto:mushafalimir49@gmail.com">Email</a>
-    </div>
-  </footer>
-
-</body>
-</html>
+    self.grad = 1.0
+    for node in reversed(topo):
+        node._backward()</code></pre>
+<h2>The bug that taught me the most</h2><p>Gradients must be added, not assigned. If one value is reused—<code>y = x * x</code> is the smallest example—two graph paths feed a contribution back into <code>x</code>. Using <code>=</code> silently overwrites one path; using <code>+=</code> accumulates both.</p><div class="callout"><strong>The useful mental model</strong>Backpropagation is not one giant derivative. It is many tiny local derivatives, evaluated in a safe order and accumulated wherever graph paths meet.</div>
+<h2>From scalars to a neural network</h2><p>Once addition, multiplication, powers, ReLU, and <code>tanh</code> worked, a neuron was simply a weighted sum followed by a nonlinearity. A layer became a list of neurons, and a multilayer perceptron became a list of layers. Training was equally direct: run the network, compute a loss, call <code>backward()</code>, and update each parameter opposite its gradient.</p><p>This implementation is intentionally small, but the architecture is the same idea used by tensor libraries: record operations during the forward pass, then apply vector-Jacobian products during the reverse pass.</p>
+<nav class="article-nav"><a href="../blog.html"><small>Archive</small><strong>All learning notes</strong></a><a href="RNN-MusicGenerator.html"><small>Next note</small><strong>Character-level LSTM →</strong></a></nav></div></article></main><footer class="site-footer"><div class="footer-inner"><span>© 2026 Mushaf Ali Mir</span><div class="footer-links"><a href="../index.html">Home</a><a href="../blog.html">Notes</a></div></div></footer></body></html>
